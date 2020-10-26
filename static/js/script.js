@@ -35,7 +35,7 @@ function rpsGame(yourChoice){
  console.log(results)
   message = finalMessage(results);
   console.log(message)
- //rpsFrontEnd(yourChoice.id, botChoice, message);
+ rpsFrontEnd(yourChoice.id, botChoice, message);
 }
 
 function randomRPSToInt(){
@@ -66,4 +66,30 @@ else if(yourScore === 0.5){
 else{
     return {'message':'You won!','color':'green'}
 }
+}
+
+function rpsFrontEnd(humenImgChoice, botImgChoice, finalMessage){
+var imagesDatabase = {
+    'rock':document.getElementById('rock').src,
+    'paper':document.getElementById('paper').src,
+    'scissors':document.getElementById('scissors').src
+}
+// let's remove the all images
+
+document.getElementById('rock').remove();
+document.getElementById('paper').remove();
+document.getElementById('scissors').remove();
+
+let humenDiv = document.createElement('div');
+let botDiv = document.createElement('div');
+let messageDiv = document.createElement('div');
+
+humenDiv.innerHTML= "<img src='"+imagesDatabase[humenImgChoice]+"' class='img-fluid img-thumbnail' height=150 width=150  style='box-shadow:0px 10px 50px 233, 1'/>"
+messageDiv.innerHTML = "<h1 class='mt-3' style='color:"+finalMessage['color']+"; font-size:60px; padding:30px;'>"+finalMessage['message']+"</h1>";
+botDiv.innerHTML= "<img src='"+imagesDatabase[botImgChoice]+"' class='img-fluid img-thumbnail' height=150 width=150  style='box-shadow:0px 10px 50px 233, 1'/>"
+
+document.getElementById('flex-box-rps-div').appendChild(humenDiv);
+document.getElementById('flex-box-rps-div').appendChild(messageDiv);
+document.getElementById('flex-box-rps-div').appendChild(botDiv);
+
 }
