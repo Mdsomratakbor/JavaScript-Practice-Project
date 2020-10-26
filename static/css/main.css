@@ -3,7 +3,7 @@
     text-align: center;
     margin: 0 auto;
 }
-.flex-box-container-1, .flex-box-container-2,.flex-box-rps {
+.flex-box-container-1, .flex-box-container-2,.flex-box-rps, .flex-box-pick-color {
     display: flex;
     border: 1px solid black;
     padding: 10px;
