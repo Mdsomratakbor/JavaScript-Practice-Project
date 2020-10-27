@@ -91,5 +91,46 @@ botDiv.innerHTML= "<img src='"+imagesDatabase[botImgChoice]+"' class='img-fluid 
 document.getElementById('flex-box-rps-div').appendChild(humenDiv);
 document.getElementById('flex-box-rps-div').appendChild(messageDiv);
 document.getElementById('flex-box-rps-div').appendChild(botDiv);
-
 }
+
+// Challenge 4: Color change of all Buttons
+
+let all_buttons = document.getElementsByTagName('button');
+console.log(all_buttons);
+
+let copyAllButtons = [];
+for(let i=0; i< all_buttons.length; i++){
+    copyAllButtons.push(all_buttons[i].classList[1]);
+    console.log(copyAllButtons);
+}
+
+function buttonColorChange(buttonThingy){
+console.log(buttonThingy.value)
+if(buttonThingy.value === 'red'){
+    buttonsNewColor('btn-danger');
+}
+else if(buttonThingy.value === 'green'){
+    buttonsNewColor('btn-success');
+}
+else if(buttonThingy.value === 'reset') {
+    buttonsNewColor(copyAllButtons);
+}
+else if(buttonThingy.value === 'random'){
+    buttonsNewColor('random');
+}
+}
+function buttonsNewColor(value)
+{
+for(let i=0; i< all_buttons.length; i++){
+  all_buttons[i].classList.remove(all_buttons[i].classList[1]);
+  if(value == 'random'){
+        all_buttons[i].classList.add(['btn-warning', 'btn-primary', 'btn-info', 'btn-dark'][Math.floor(Math.random()*4)]);
+  }
+  else if(!Array.isArray(value))
+  all_buttons[i].classList.add(value);
+  else
+  all_buttons[i].classList.add(value[i]);
+}
+}
+
+
