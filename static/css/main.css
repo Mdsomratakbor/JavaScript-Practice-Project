@@ -3,13 +3,17 @@
     text-align: center;
     margin: 0 auto;
 }
-.flex-box-container-1, .flex-box-container-2,.flex-box-rps, .flex-box-pick-color {
+.flex-box-container-1, .flex-box-container-2,.flex-box-rps, .flex-box-pick-color,
+ .flex-blackjack-row-1, .flex-blackjack-row-2 {
     display: flex;
     border: 1px solid black;
     padding: 10px;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
+}
+.flex-blackjack-row-1{
+    background: url('../images/poker-table-background-green-color_47243-1068.jpg');
 }
 .flex-box-container-1 div{
     padding: 10px;
@@ -24,4 +28,17 @@
 }
 .flex-box-rps img:hover{
      box-shadow: 0px 10px 50px rgba(37,50,233,1);
+}
+
+
+/* Horror Page Damo css */
+
+.card-body-img{
+  background-image: url("../images/AAAABY9hplwGrRRtlFkRi25QpOTC-GZtSoE5vBtWsYKGdu1RDMUlvMpNhnTWHE7RXF4ApzCNjlhrXufKan0lzjXEeLiOAlxZ.jpg");
+  /* Full height */
+  height: 500px;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
