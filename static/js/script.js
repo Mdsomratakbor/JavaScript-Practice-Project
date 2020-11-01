@@ -140,3 +140,58 @@ function buttonsNewColor(value) {
     else all_buttons[i].classList.add(value[i]);
   }
 }
+
+// Challegne 5: Blackjack
+let blackjackGame = {
+  you: { scopreSpan: "#your-blackjack-result", div: "#your-box", scopre: 0 },
+  dealer: {
+    scopreSpan: "#dealer-blackjack-result",
+    div: "#dealer-box",
+    scopre: 0,
+  },
+  cards: ["2", "3", "4", "5", "6", "7", "8", "9", "10", "K", "J", "Q", "A"],
+};
+
+const YOU = blackjackGame["you"];
+const DEALER = blackjackGame["dealer"];
+const hitSound = new Audio("static/sounds/swish.m4a");
+
+document
+  .querySelector("#balckjack-hit-button")
+  .addEventListener("click", BlackjackHit);
+document
+  .querySelector("#blackjack-deal-button")
+  .addEventListener("click", BlackjackDeal);
+function BlackjackHit() {
+  let card = RandomCard();
+  console.log(card);
+  ShowCart(card,DEALER);
+}
+
+
+function ShowCart(card, activePlayer) {
+  let cardImage = document.createElement("img");
+  cardImage.src = `static/images/${card}.png`;
+  document.querySelector(activePlayer["div"]).appendChild(cardImage);
+  hitSound.play();
+}
+
+
+function BlackjackDeal() {
+  let yourImages = document.querySelector("#your-box").querySelectorAll("img");
+  let dealerImages = document
+    .querySelector("#dealer-box")
+    .querySelectorAll("img");
+
+  for (i = 0; i < yourImages.length; i++) {
+    yourImages[i].remove();
+  }
+  for (i = 0; i < dealerImages.length; i++) {
+    dealerImages[i].remove();
+  }
+}
+
+function RandomCard() {
+  let randomIndex = Math.floor(Math.random() * 13);
+  return blackjackGame["cards"][randomIndex];
+}
