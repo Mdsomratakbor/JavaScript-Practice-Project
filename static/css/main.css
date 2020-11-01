@@ -1,39 +1,67 @@
-.container{
-    border :1px solid black;
-    text-align: center;
-    margin: 0 auto;
+.container {
+  border: 1px solid black;
+  text-align: center;
+  margin: 0 auto;
 }
-.flex-box-container-1, .flex-box-container-2,.flex-box-rps, .flex-box-pick-color,
- .flex-blackjack-row-1, .flex-blackjack-row-2 {
-    display: flex;
+.flex-box-container-1,
+.flex-box-container-2,
+.flex-box-rps,
+.flex-box-pick-color,
+.flex-blackjack-row-1,
+.flex-blackjack-row-2, .flex-blackjack-row-3 {
+  display: flex;
+  border: 1px solid black;
+  padding: 10px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.flex-blackjack-row-1, .flex-blackjack-row-2 {
+  background: url("../images/poker-table-background-green-color_47243-1068.jpg");
+  color: #ffffff;
+}
+.flex-blackjack-row-1 div{
     border: 1px solid black;
     padding: 10px;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
+    flex: 1;
+    height: 350px;
+    text-align: center;
 }
-.flex-blackjack-row-1{
-    background: url('../images/poker-table-background-green-color_47243-1068.jpg');
-}
-.flex-box-container-1 div{
+.flex-blackjack-row-1 img{
+    height: 25%;
     padding: 10px;
-    display: flex;
-    align-items: center;
-    border:1px solid black;
+
+}
+.flex-blackjack-row-2 button{
+    border: 1px solid black;
+    padding: 10px;
+}
+.flex-blackjack-row-2 div{
+    border: 1px solid black;
+    padding: 10px;
+}
+table, th, td{
+    padding: 5px;
+    border: 1px solid black;
+}
+.flex-box-container-1 div {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
 }
 
-.flex-box-container-2 img{
-    box-shadow: 0px 10px 50px rgba(0,0,0,0.7);
-    margin: 10px;
+.flex-box-container-2 img {
+  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.7);
+  margin: 10px;
 }
-.flex-box-rps img:hover{
-     box-shadow: 0px 10px 50px rgba(37,50,233,1);
+.flex-box-rps img:hover {
+  box-shadow: 0px 10px 50px rgba(37, 50, 233, 1);
 }
-
 
 /* Horror Page Damo css */
 
-.card-body-img{
+.card-body-img {
   background-image: url("../images/AAAABY9hplwGrRRtlFkRi25QpOTC-GZtSoE5vBtWsYKGdu1RDMUlvMpNhnTWHE7RXF4ApzCNjlhrXufKan0lzjXEeLiOAlxZ.jpg");
   /* Full height */
   height: 500px;
