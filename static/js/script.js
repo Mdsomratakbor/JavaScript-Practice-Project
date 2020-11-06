@@ -206,7 +206,7 @@ function BlackjackHit() {
     let card = RandomCard();
     ShowCard(card, YOU);
     UpdateScore(card, YOU);
-    ShowScore(YOU);
+    ShowScore(YOU);     
   }
 }
 
@@ -272,17 +272,24 @@ function ShowScore(activePlayer) {
   }
 }
 
-function DealerLogic() {
+function Sleep(ms){
+return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+async function DealerLogic() {
   blackjackGame["isStand"] = true;
-  let card = RandomCard();
-  ShowCard(card, DEALER);
-  UpdateScore(card, DEALER);
-  ShowScore(DEALER);
+  while(DEALER['score']<16 && blackjackGame['isStand'] === true){
+ let card = RandomCard();
+ ShowCard(card, DEALER);
+ UpdateScore(card, DEALER);
+ ShowScore(DEALER);
+ await Sleep(1000)
+  }
+ 
   if (DEALER["score"] > 15) {
     blackjackGame["turnOver"] = true;
     let winner = ComputeWinner();
     ShowResult(winner);
-    console.log(blackjackGame["turnOver"]);
   }
 }
 
