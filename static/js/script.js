@@ -32,11 +32,8 @@ function rpsGame(yourChoice) {
   let humenChoice, botChoice;
   humenChoice = yourChoice.id;
   botChoice = numberToChoise(randomRPSToInt());
-  console.log("computerchoice", botChoice);
   let results = decideWinner(humenChoice, botChoice);
-  console.log(results);
   message = finalMessage(results);
-  console.log(message);
   rpsFrontEnd(yourChoice.id, botChoice, message);
 }
 
@@ -107,12 +104,10 @@ function rpsFrontEnd(humenImgChoice, botImgChoice, finalMessage) {
 // Challenge 4: Color change of all Buttons
 
 let all_buttons = document.getElementsByTagName("button");
-console.log(all_buttons);
 
 let copyAllButtons = [];
 for (let i = 0; i < all_buttons.length; i++) {
   copyAllButtons.push(all_buttons[i].classList[1]);
-  console.log(copyAllButtons);
 }
 
 function buttonColorChange(buttonThingy) {
@@ -318,7 +313,6 @@ function ComputeWinner() {
   else if (YOU["score"] > 21 && DEALER["score"] > 21) {
     blackjackGame["draws"]++;
   }
-  console.log(blackjackGame);
   return winner;
 }
 
@@ -344,3 +338,25 @@ function ShowResult(winner) {
     document.querySelector("#blackjack-result").style.color = messageColor;
   }
 }
+
+
+
+// challenge 6 : Random User generate
+
+const url = "https://randomuser.me/api/?results=10";
+fetch(url)
+.then(response=> response.json())
+.then(data=> {
+  let authors = data.results;
+  for(let i =0; i<authors.length; i++){
+  let div = document.createElement('div');
+  let image = document.createElement('img');
+  let p = document.createElement('p');
+  p.appendChild(document.createTextNode(`${title(authors[i].name.first)}${title(authors[i].name.last)}`));
+  image.src = authors[i].picture.large;
+  div.appendChild(image);
+  div.appendChild(p);
+  document.getElementById("user").appendChild(div);
+  }
+})
+let title = str=>str[0].toUpperCase() + str[0].slice(1);
